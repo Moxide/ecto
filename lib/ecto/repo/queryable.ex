@@ -295,6 +295,7 @@ defmodule Ecto.Repo.Queryable do
   defp convert_to_tag(value, _),
     do: value
 
+  defp to_map(value, _fields) when is_nil(value), do: nil
   defp to_map(value, fields) when is_list(value) do
     Enum.map(value, &to_map(&1, fields))
   end
